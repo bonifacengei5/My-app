@@ -1,6 +1,6 @@
 package com.example.myecommercecompany.models
 
-class Products {
+class Product {
     class Products {
         var name:String = ""
         var quantity:String = ""

@@ -8,13 +8,9 @@ import androidx.navigation.compose.composable
 
 import com.example.myecommercecompany.ui.theme.pages.home.HomeScreen
 import com.example.myecommercecompany.ui.theme.pages.products.ProductsScreen
-import com.example.myecommercecompany.ui.theme.pages.products.ProductsScreen
 import com.example.myecommercecompany.ui.theme.pages.products.MyFruitsScreen
 import com.example.myecommercecompany.ui.theme.pages.products.OrderProductsScreen
-import com.example.myecommercecompany.ui.theme.pages.products.ProductsScreen
-import com.example.myecommercecompany.ui.theme.pages.products.UpdateProductsScreen
-
-import com.example.myecommercecompany.ui.theme.pages.products.UpdateProductsScreen
+import com.example.myecommercecompany.ui.theme.pages.products.UpdateProductScreen
 
 @Composable
 fun BottomNavGraph(
@@ -41,10 +37,13 @@ fun BottomNavGraph(
             ProductsScreen(navController)
         }
         composable(route = ROUTE_UPDATE_PRODUCTS){
-            UpdateProductsScreen(navController)
+            UpdateProductScreen(navController)
         }
         composable(route = ROUTE_PRODUCTS){
             ProductsScreen(navController)
+        }
+        composable(ROUTE_UPDATE_PRODUCTS ){
+            UpdateProductScreen(navController)
         }
 
     }

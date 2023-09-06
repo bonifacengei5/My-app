@@ -1,4 +1,4 @@
-package com.example.myecommercecompany.ui.theme.pages.login
+package com.example.myecommercecompany.ui.theme.pages
 
 import android.content.res.Configuration
 import androidx.compose.foundation.layout.Column
@@ -29,22 +29,16 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
-import androidx.navigation.compose.rememberNavController
-import com.example.myecommercecompany.navigations.ROUTE_SIGNUP
-import com.example.myecommercecompany.ui.theme.MyEcommerceCompanyTheme
-
+import com.example.myecommercecompany.navigations.ROUTE_LOGIN
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun LoginScreen(navController: NavHostController) {
+fun SignUpScreen(navController: NavHostController) {
 }
-
 
 
 @Preview(showBackground = true, uiMode = Configuration.UI_MODE_NIGHT_NO)
 @Composable
-fun LoginScreenPreview() {
-    MyEcommerceCompanyTheme() {
-        LoginScreen(rememberNavController())
-    }
+fun SignUpScreenPreview() {
+
 }
