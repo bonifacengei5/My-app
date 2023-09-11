@@ -3,6 +3,7 @@ package com.example.myecommercecompany.ui.theme.pages.home
 
 import android.media.Image
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -52,26 +53,32 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.example.myecommercecompany.R
+import com.example.myecommercecompany.navigations.ROUTE_MyFruits_Screen
+import com.example.myecommercecompany.navigations.ROUTE_ODER_PRODUCTS
 import com.example.myecommercecompany.ui.theme.MyEcommerceCompanyTheme
-
 
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun HomeScreen() {
+fun HomeScreen(navController: NavHostController) {
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .padding(16.dp),
+            .padding(16.dp)
+            .background(color = Color.Green),
+
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Text(
-            text = "Bumia Matamu ",
+            text = " BumiaMatamu ",
             color = Color.Red,
             fontSize = 40.sp,
             textDecoration = TextDecoration.Underline,
             modifier = Modifier.padding(20.dp)
+
+                .background(color = Color.Green)
         )
+
         Spacer(modifier = Modifier.height(30.dp))
 
         Image(
@@ -87,93 +94,19 @@ fun HomeScreen() {
         Row(
             modifier = Modifier
                 .fillMaxWidth(),
-            horizontalArrangement = Arrangement.Center
+
         ) {
-            Button(
-                onClick = { "buy now" },
-                modifier = Modifier
-                    .height(120.dp)
-                    .width(100.dp),
-                shape = CutCornerShape(40)
-
-
-            ) {
-                Image(
-                    painter = painterResource(id = R.drawable.mangoes),
-                    contentDescription = null,
-                    modifier = Modifier
-
-                        .fillMaxSize()
-                )
-            }
-            Spacer(modifier = Modifier.width(80.dp))
-
-            Button(
-                onClick = { /*TODO*/ },
-                modifier = Modifier
-                    .height(120.dp)
-                    .width(100.dp),
-                shape = CutCornerShape(40)
-
-            ) {
-                Image(
-                    painter = painterResource(id = R.drawable.strawberry),
-                    contentDescription = null,
-                    modifier = Modifier
-
-                        .fillMaxSize()
-                )
-            }
+            Text(
+                text = " Our products are readily available  ",
+                color = Color.Red,
+                fontSize = 20.sp,
+                textDecoration = TextDecoration.Underline,
+                modifier = Modifier.padding(20.dp)
+                    .background(color = Color.Green)
+            )
+            
         }
-        Spacer(modifier = Modifier.width(80.dp))
-        Spacer(modifier = Modifier.height(30.dp))
-
-        Row(
-            modifier = Modifier.fillMaxWidth(),
-            horizontalArrangement = Arrangement.Center
-        ) {
-            Button(
-                onClick = { /*TODO*/ },
-                modifier = Modifier
-                    .height(120.dp)
-                    .width(100.dp),
-                shape = CutCornerShape(40)
-
-            ) {
-                Image(
-                    painter = painterResource(id = R.drawable.lime),
-                    contentDescription = null,
-                    modifier = Modifier
-
-                        .fillMaxSize()
-                )
-            }
-            Spacer(modifier = Modifier.width(80.dp))
-
-            Button(
-                onClick = { /*TODO*/ },
-                modifier = Modifier
-                    .height(120.dp)
-                    .width(100.dp),
-                shape = CutCornerShape(40)
-
-
-
-            ) {
-                Image(
-                    painter = painterResource(id = R.drawable.oranges),
-                    contentDescription = null,
-                    modifier = Modifier
-
-                        .fillMaxSize()
-                )
-            }
-        }
-        Spacer(modifier = Modifier.height(30.dp))
-        Spacer(modifier = Modifier.width(80.dp))
     }
-
-
 
 
 }
@@ -184,7 +117,7 @@ fun HomeScreen() {
 @Composable
 fun HomeScreenPreview() {
     MyEcommerceCompanyTheme{
-        HomeScreen()
+        HomeScreen(rememberNavController())
     }
 }
 

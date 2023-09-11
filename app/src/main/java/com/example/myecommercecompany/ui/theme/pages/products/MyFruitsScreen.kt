@@ -71,7 +71,7 @@ fun MyFruitsScreen(navController: NavHostController) {
                     },
                     modifier = Modifier.align(Alignment.End)
                 ) {
-                    Text(text = "Total Price: \$10.99")
+                    Text(text = "Oder")
                 }
             }
         }

@@ -29,16 +29,99 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
+import androidx.navigation.compose.rememberNavController
+import com.example.myecommercecompany.data.AuthRepository
 import com.example.myecommercecompany.navigations.ROUTE_LOGIN
+import com.example.myecommercecompany.ui.theme.MyEcommerceCompanyTheme
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun SignUpScreen(navController: NavHostController) {
+    Column(modifier = Modifier.fillMaxSize(),
+        horizontalAlignment = Alignment.CenterHorizontally)
+    {
+        var  context = LocalContext.current
+        Text(text ="Register here",
+            fontSize = 30.sp,
+            fontFamily = FontFamily.Cursive,
+            color = Color.Red,
+            modifier = Modifier.padding(20.dp),
+            fontWeight = FontWeight.Bold,
+            textDecoration = TextDecoration.Underline
+        )
+        var name by remember { mutableStateOf(TextFieldValue("")) }
+        var email by remember { mutableStateOf(TextFieldValue("")) }
+        var password by remember { mutableStateOf(TextFieldValue("")) }
+
+
+
+
+        OutlinedTextField(value = name,
+            onValueChange = {name = it},
+            label = {Text(text = "Name *")},
+            keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Email)
+        )
+        OutlinedTextField(value = email,
+            onValueChange = {email = it},
+            label = {Text(text = "Email *")},
+            keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Email)
+        )
+
+        Spacer(modifier = Modifier.height(20.dp))
+
+        OutlinedTextField(value = password,
+            onValueChange = {password = it},
+            label = {Text(text = "Password *")},
+            keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Password)
+
+        )
+
+        Spacer(modifier = Modifier.height(20.dp))
+
+        Button(onClick = {
+            //-------WRITE THE SIGNUP LOGIC HERE---//
+            var  authRepository = AuthRepository(navController, context)
+            authRepository.signup(name.text.trim(), email.text.trim(), password.text.trim())
+        }) {
+            Text(text = "Signup")
+        }
+
+        Spacer(modifier = Modifier.height(20.dp))
+
+        Button(onClick = {
+            navController.navigate(ROUTE_LOGIN)
+        }) {
+            Text(text = "Have account login")
+        }
+
+
+    }
 }
+
 
 
 @Preview(showBackground = true, uiMode = Configuration.UI_MODE_NIGHT_NO)
 @Composable
 fun SignUpScreenPreview() {
+    MyEcommerceCompanyTheme() {
+        SignUpScreen(rememberNavController())
+
+
+    }
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

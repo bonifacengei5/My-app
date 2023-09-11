@@ -30,6 +30,10 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
+import com.example.myecommercecompany.data.ProductRepository
+import com.example.myecommercecompany.navigations.ROUTE_ODER_PRODUCTS
+import com.example.myecommercecompany.navigations.ROUTE_UPDATE_PRODUCTS
+import com.example.myecommercecompany.navigations.ROUTE_VIEW_PRODUCTS
 
 import com.example.myecommercecompany.ui.theme.MyEcommerceCompanyTheme
 
@@ -42,7 +46,15 @@ fun ProductsScreen(navController: NavHostController) {
         modifier = Modifier.fillMaxSize(),
         horizontalAlignment = Alignment.CenterHorizontally
     )
+
     {
+        Button(onClick = {
+            navController.navigate(ROUTE_VIEW_PRODUCTS)
+
+        }) {
+            Text(text = "Welcome to update products")
+
+        }
         var context = LocalContext.current
         Text(
             text = "Add product",
@@ -82,6 +94,15 @@ fun ProductsScreen(navController: NavHostController) {
             keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Text)
 
         )
+        Spacer(modifier = Modifier.height(20.dp))
+
+        Button(onClick = {
+            //-------WRITE THE SAVE LOGIC HERE---//
+            var productRepository = ProductRepository(navController, context)
+            productRepository.saveProduct(productname.text.trim(), productquantity.text.trim(), productprice.text.trim())
+        }) {
+            Text(text = "Save")
+        }
 
 
     }
