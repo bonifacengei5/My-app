@@ -31,9 +31,9 @@ class ProductRepository(var navController: NavHostController, var context: Conte
     }
 
 
-    fun saveProduct(productName:String, productQuantity:String, productPrice:String){
+    fun saveProduct(productName:String, productSize:String, productPrice:String){
         var id = System.currentTimeMillis().toString()
-        var productData = Product(productName,productQuantity,productPrice,id)
+        var productData = Product(productName,productSize,productPrice,id)
         var productRef = FirebaseDatabase.getInstance().getReference()
             .child("Products/$id")
         progress.show()
@@ -83,11 +83,11 @@ class ProductRepository(var navController: NavHostController, var context: Conte
         }
     }
 
-    fun updateProduct(name:String, quantity:String, price:String,id:String){
+    fun updateProduct(name:String, size:String, price:String,id:String){
         var updateRef = FirebaseDatabase.getInstance().getReference()
             .child("Products/$id")
         progress.show()
-        var updateData = Product(name, quantity, price, id)
+        var updateData = Product(name, size, price, id)
         updateRef.setValue(updateData).addOnCompleteListener {
             progress.dismiss()
             if (it.isSuccessful){

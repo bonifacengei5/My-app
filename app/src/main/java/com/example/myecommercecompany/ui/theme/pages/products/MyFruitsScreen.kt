@@ -46,8 +46,9 @@ fun MyFruitsScreen(navController: NavHostController) {
         Row(
             verticalAlignment = Alignment.CenterVertically,
             modifier = Modifier
-                .fillMaxWidth()
+                .fillMaxSize()
                 .padding(8.dp)
+                .background(Color.Red)
         ) {
             Image(
                 painter = painterResource(id = model.image),

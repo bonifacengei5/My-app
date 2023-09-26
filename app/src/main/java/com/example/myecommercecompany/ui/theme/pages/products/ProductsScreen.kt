@@ -48,13 +48,7 @@ fun ProductsScreen(navController: NavHostController) {
     )
 
     {
-        Button(onClick = {
-            navController.navigate(ROUTE_VIEW_PRODUCTS)
 
-        }) {
-            Text(text = "Welcome to update products")
-
-        }
         var context = LocalContext.current
         Text(
             text = "Add product",
@@ -81,7 +75,7 @@ fun ProductsScreen(navController: NavHostController) {
         OutlinedTextField(
             value = productquantity,
             onValueChange = { productquantity = it },
-            label = { Text(text = "Product quantity*") },
+            label = { Text(text = "Product size*") },
             keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Text)
         )
 
@@ -102,6 +96,13 @@ fun ProductsScreen(navController: NavHostController) {
             productRepository.saveProduct(productname.text.trim(), productquantity.text.trim(), productprice.text.trim())
         }) {
             Text(text = "Save")
+        }
+        Button(onClick = {
+            navController.navigate(ROUTE_VIEW_PRODUCTS)
+
+        }) {
+            Text(text = "Welcome to update products")
+
         }
 
 

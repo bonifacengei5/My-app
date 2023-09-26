@@ -39,6 +39,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.platform.LocalContext
 
 import androidx.compose.ui.res.painterResource
 
@@ -55,6 +56,9 @@ import androidx.navigation.compose.rememberNavController
 import com.example.myecommercecompany.R
 import com.example.myecommercecompany.navigations.ROUTE_MyFruits_Screen
 import com.example.myecommercecompany.navigations.ROUTE_ODER_PRODUCTS
+import com.example.myecommercecompany.navigations.ROUTE_PRODUCTS
+import com.example.myecommercecompany.navigations.ROUTE_UPDATE_PRODUCTS
+import com.example.myecommercecompany.navigations.ROUTE_VIEW_PRODUCTS
 import com.example.myecommercecompany.ui.theme.MyEcommerceCompanyTheme
 
 
@@ -74,7 +78,8 @@ fun HomeScreen(navController: NavHostController) {
             color = Color.Red,
             fontSize = 40.sp,
             textDecoration = TextDecoration.Underline,
-            modifier = Modifier.padding(20.dp)
+            modifier = Modifier
+                .padding(20.dp)
 
                 .background(color = Color.Green)
         )
@@ -95,21 +100,54 @@ fun HomeScreen(navController: NavHostController) {
             modifier = Modifier
                 .fillMaxWidth(),
 
-        ) {
+            ) {
             Text(
-                text = " Our products are readily available  ",
+                text = " Welcome to our fruits ",
                 color = Color.Red,
                 fontSize = 20.sp,
                 textDecoration = TextDecoration.Underline,
-                modifier = Modifier.padding(20.dp)
+                modifier = Modifier
+                    .padding(20.dp)
                     .background(color = Color.Green)
             )
-            
+
+            Spacer(modifier = Modifier.height(70.dp))
+
+
+        }
+        Row()
+        {
+            Button(onClick = {
+                navController.navigate(ROUTE_VIEW_PRODUCTS)
+            }) {
+                Text(text = "Fruits")
+            }
+            Spacer(modifier = Modifier.width(120.dp))
+
+            Button(onClick = {  navController.navigate(ROUTE_PRODUCTS)
+            }) {
+                Text(text = "PRODUCTS")
+            }
+
+        }
+        Spacer(modifier = Modifier.height(30.dp))
+        Row(modifier = Modifier,
+            horizontalArrangement = Arrangement.Center)
+        {
+            Button(onClick = {
+                navController.navigate(ROUTE_ODER_PRODUCTS)
+            }) {
+                Text(text = "Oder")
+            }
+
+
         }
     }
 
 
 }
+
+
 
 
 

@@ -28,19 +28,21 @@ fun OrderProductsScreen(navController: NavHostController) {
         modifier = Modifier.fillMaxSize()
             .background(color = Color.Green),
         horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.Center
+        verticalArrangement = Arrangement.Center,
+
+
 
     ) {
         val context= LocalContext.current
         Text(
-            text = "Your Order",
+            text = "Oder now",
             fontSize = 24.sp
         )
 
         Spacer(modifier = Modifier.height(16.dp))
 
         Text(
-            text = "Total Price: $10.99", // Replace with your actual total price
+            text = "Get fruits", // Replace with your actual total price
             fontSize = 18.sp
         )
 

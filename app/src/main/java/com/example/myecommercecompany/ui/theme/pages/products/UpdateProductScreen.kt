@@ -89,7 +89,7 @@ fun UpdateProductScreen(navController: NavHostController, id:String) {
         OutlinedTextField(
             value = productquantity,
             onValueChange = { productquantity = it },
-            label = { Text(text = "Product quantity*") },
+            label = { Text(text = "Product size*") },
             keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Text)
         )
 

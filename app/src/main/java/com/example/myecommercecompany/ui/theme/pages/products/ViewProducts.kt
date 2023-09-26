@@ -75,7 +75,7 @@ fun ViewProductsScreen(navController:NavHostController) {
                 items(products){
                     ProductItem(
                         name = it.name,
-                        quantity = it.quantity,
+                        size = it.quantity,
                         price = it.price,
                         id = it.id,
                         navController = navController,
@@ -89,7 +89,7 @@ fun ViewProductsScreen(navController:NavHostController) {
 
 
 @Composable
-fun ProductItem(name:String, quantity:String, price:String, id:String,
+fun ProductItem(name:String, size:String, price:String, id:String,
                 navController:NavHostController, productRepository:ProductRepository) {
 
     /*Column(modifier = Modifier.fillMaxWidth()) {
